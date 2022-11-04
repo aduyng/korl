@@ -1,7 +1,5 @@
-import React, { FC, ReactNode } from "react";
-import { Box, CssBaseline } from "@mui/material";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { FC, ReactNode } from "react";
+import { Box } from "@mui/material";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,23 +7,18 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <CssBaseline />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          minHeight: "100vh",
-          maxWidth: "100vw",
-          flexGrow: 1,
-        }}
-      >
-        <Navbar />
-        {children}
-        <Footer />
-      </Box>
-    </>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        minHeight: "100vh",
+        maxWidth: "100vw",
+        flexGrow: 1,
+      }}
+    >
+      {children}
+    </Box>
   );
 };
 
