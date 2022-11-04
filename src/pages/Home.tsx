@@ -1,7 +1,17 @@
-import React, { ReactElement, FC } from "react";
+import { useEffect } from "react";
+import { signInAnonymously, getAuth } from "firebase/auth";
 import { Box, Typography } from "@mui/material";
+import { useAuth } from "../context/Auth";
 
-const Home: FC<any> = (): ReactElement => {
+const Home = () => {
+  const auth = useAuth();
+
+  useEffect(() => {
+    if (!auth.user) {
+      signInAnonymously(getAuth());
+    }
+  }, [auth.user]);
+
   return (
     <Box
       sx={{

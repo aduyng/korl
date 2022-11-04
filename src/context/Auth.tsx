@@ -1,12 +1,17 @@
-import { getAuth, onIdTokenChanged, signOut as signUserOut } from "firebase/auth";
-import getClient from "../libs/firebase/getClient";
+import {
+  getAuth,
+  onIdTokenChanged,
+  signOut as signUserOut,
+  User,
+} from "firebase/auth";
+import getClient from "../firebase/getClient";
 import { createContext, useContext, useEffect, useState } from "react";
 import Loader from "../components/Loader";
 
 const AuthContext = createContext<{ user: User | null; signOut: () => void }>({
   user: null,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  signOut: () => {}
+  signOut: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -26,9 +31,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
         return;
       }
-      const token = await fireUser.getIdToken();
-      const response = await getMe();
-      response.data?.me && setUser(response.data.me);
+      setUser(fireUser);
       setLoading(false);
     });
   }, []);
@@ -42,10 +45,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }, 10 * 1000);
     return () => clearInterval(handle);
   }, []);
+  
   if (loading) {
     return <Loader center />;
   }
-  return <AuthContext.Provider value={{ user, signOut }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, signOut }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);

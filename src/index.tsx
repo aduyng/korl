@@ -1,15 +1,11 @@
-import { initializeApp } from "firebase/app";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import firebaseConfig from "./firebase/config";
-
-const firebase = initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App firebase={firebase} />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
