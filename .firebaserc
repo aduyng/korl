@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "dewey-nguyen"
-  }
+  },
+  "targets": {
+    "dewey-nguyen": {
+      "hosting": {
+        "korl": [
+          "kl1stbd"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
