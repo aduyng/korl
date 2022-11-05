@@ -1,6 +1,7 @@
 import {
   getAuth,
   onIdTokenChanged,
+  signInAnonymously,
   signOut as signUserOut,
   User,
 } from "firebase/auth";
@@ -8,14 +9,21 @@ import getClient from "../firebase/getClient";
 import { createContext, useContext, useEffect, useState } from "react";
 import Loader from "../components/Loader";
 
-const AuthContext = createContext<{ user: User | null; signOut: () => void }>({
+export type LoggedInUser = User & {
+  isAdmin: boolean;
+};
+
+const AuthContext = createContext<{
+  user: LoggedInUser | null;
+  signOut: () => void;
+}>({
   user: null,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   signOut: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<LoggedInUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   const signOut = () => {
@@ -31,7 +39,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
         return;
       }
-      setUser(fireUser);
+      setUser({
+        ...fireUser,
+        isAdmin: [
+          "d0FH2HnrdyVyZH264A3FA3gdsk82",
+          "KxWEWUdZv8Sf6QXn26uK7xqYhEw2",
+        ].includes(fireUser.uid),
+      });
       setLoading(false);
     });
   }, []);
@@ -45,7 +59,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }, 10 * 1000);
     return () => clearInterval(handle);
   }, []);
-  
+
+  useEffect(() => {
+    if (!user) {
+      signInAnonymously(getAuth());
+    }
+  }, []);
+
   if (loading) {
     return <Loader center />;
   }

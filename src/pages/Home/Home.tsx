@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { signInAnonymously, getAuth } from "firebase/auth";
-import { useAuth } from "../context/Auth";
-import Content from "./Home/Content";
+import { useAuth } from "../../context/Auth";
+import Content from "./Content";
 
 const Home = () => {
   const auth = useAuth();
