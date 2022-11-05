@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     if (!user) {
       signInAnonymously(getAuth());
     }
-  }, []);
+  }, [user]);
 
   if (loading) {
     return <Loader center />;
