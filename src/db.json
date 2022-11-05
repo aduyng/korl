@@ -1,0 +1,70 @@
+{
+  "mode": "ongoing",
+  "participants": {
+    "d0FH2HnrdyVyZH264A3FA3gdsk82": {
+      "name": "Duy Nguyen",
+      "uid": "d0FH2HnrdyVyZH264A3FA3gdsk82",
+      "votes": [
+        {
+          "voted": "K"
+        },
+        {
+          "voted": "K"
+        },
+        {
+          "createdAt": 1667607312212,
+          "voted": "K"
+        },
+        {
+          "createdAt": 1667607316108,
+          "voted": "L"
+        },
+        null,
+        {
+          "createdAt": 1667606898738,
+          "voted": "L"
+        },
+        {
+          "createdAt": 1667606901436,
+          "voted": "K"
+        },
+        {
+          "createdAt": 1667606899969,
+          "voted": "K"
+        }
+      ]
+    }
+  },
+  "answers": [
+    {
+      "answer": "K"
+    },
+    {
+      "answer": "L"
+    },
+    {
+      "answer": "K"
+    },
+    {
+      "answer": "L"
+    },
+    {
+      "answer": "K"
+    },
+    {
+      "answer": "L"
+    },
+    {
+      "answer": "K"
+    },
+    {
+      "answer": "L"
+    },
+    {
+      "answer": "K"
+    },
+    {
+      "answer": "L"
+    }
+  ]
+}
