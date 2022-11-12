@@ -42,8 +42,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser({
         ...fireUser,
         isAdmin: [
-          "d0FH2HnrdyVyZH264A3FA3gdsk82",
-          "KxWEWUdZv8Sf6QXn26uK7xqYhEw2",
+          "R4QNffnWIIfUS66i6XgvEqYyiyw2", // Macbook Pro - Chrome
+          "KxWEWUdZv8Sf6QXn26uK7xqYhEw2", // Android - Chrome
         ].includes(fireUser.uid),
       });
       setLoading(false);
