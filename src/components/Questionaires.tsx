@@ -21,12 +21,12 @@ const Questionaires = ({
     voted,
   }: {
     rowIndex: number;
-    voted: "K" | "L";
+    voted: "Y" | "N";
   }) => void;
 }) => {
   const theme = useTheme();
   const createRadioOnChangeHandler =
-    ({ rowIndex, voted }: { rowIndex: number; voted: "K" | "L" }) =>
+    ({ rowIndex, voted }: { rowIndex: number; voted: "Y" | "N" }) =>
     () =>
       onChange({ rowIndex, voted });
 
@@ -59,7 +59,7 @@ const Questionaires = ({
                 borderBottomColor: theme.palette.common.black,
               }}
             >
-              Katalina
+              Yes
             </TableCell>
             <TableCell
               component="th"
@@ -69,7 +69,7 @@ const Questionaires = ({
                 borderBottomColor: theme.palette.common.black,
               }}
             >
-              Liliane
+              No
             </TableCell>
           </TableRow>
         </TableHead>
@@ -90,14 +90,14 @@ const Questionaires = ({
                     control={
                       <Radio
                         inputProps={{ name: `question${rowIndex}` }}
-                        checked={votes[rowIndex]?.voted === "K"}
+                        checked={votes[rowIndex]?.voted === "Y"}
                         onChange={createRadioOnChangeHandler({
                           rowIndex,
-                          voted: "K",
+                          voted: "Y",
                         })}
                       />
                     }
-                    label="Katalina"
+                    label="Yes"
                   />
                 </FormGroup>
               </TableCell>
@@ -112,14 +112,14 @@ const Questionaires = ({
                     control={
                       <Radio
                         inputProps={{ name: `question${rowIndex}` }}
-                        checked={votes[rowIndex]?.voted === "L"}
+                        checked={votes[rowIndex]?.voted === "N"}
                         onChange={createRadioOnChangeHandler({
                           rowIndex,
-                          voted: "L",
+                          voted: "N",
                         })}
                       />
                     }
-                    label="Liliane"
+                    label="No"
                   />
                 </FormGroup>
               </TableCell>

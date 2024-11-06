@@ -40,7 +40,7 @@ const Answers = ({
                 borderBottomColor: theme.palette.common.black,
               }}
             >
-              Picture #
+              Question #
             </TableCell>
             <TableCell
               component="th"
@@ -50,7 +50,7 @@ const Answers = ({
                 borderBottomColor: theme.palette.common.black,
               }}
             >
-              Katalina
+              Yes
             </TableCell>
             <TableCell
               component="th"
@@ -60,7 +60,7 @@ const Answers = ({
                 borderBottomColor: theme.palette.common.black,
               }}
             >
-              Liliane
+              No
             </TableCell>
             <TableCell
               component="th"
@@ -87,7 +87,7 @@ const Answers = ({
               >
                 <Radio
                   inputProps={{ name: `question${rowIndex}` }}
-                  checked={votes[rowIndex]?.voted === "K"}
+                  checked={votes[rowIndex]?.voted === "Y"}
                   disabled
                 />
               </TableCell>
@@ -99,7 +99,7 @@ const Answers = ({
               >
                 <Radio
                   inputProps={{ name: `question${rowIndex}` }}
-                  checked={votes[rowIndex]?.voted === "L"}
+                  checked={votes[rowIndex]?.voted === "N"}
                   disabled
                 />
               </TableCell>

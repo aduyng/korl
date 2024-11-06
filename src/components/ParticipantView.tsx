@@ -22,7 +22,7 @@ const ParticipantView = ({
     voted,
   }: {
     rowIndex: number;
-    voted: "K" | "L";
+    voted: "Y" | "N";
   }) => {
     set(
       ref(

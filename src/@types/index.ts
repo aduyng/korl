@@ -1,9 +1,9 @@
 export type Answer = {
-  answer: "K" | "L";
+  answer: "Y" | "N";
 };
 
 export type Vote = {
-  voted: "K" | "L";
+  voted: "Y" | "N";
   createdAt: Date;
 };
 
