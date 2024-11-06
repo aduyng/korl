@@ -4,6 +4,7 @@
   },
   "hosting": {
     "public": "build",
+    "target": "korl2024",
     "ignore": [
       "firebase.json",
       "**/.*",

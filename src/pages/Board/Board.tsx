@@ -31,7 +31,7 @@ export default function Board() {
   const theme = useTheme();
 
   useEffect(() => {
-    if (!user || !user.isAdmin) {
+    if (!user) {
       navigate("/", { replace: true });
     }
     if (!snapshot || !user) {
@@ -76,7 +76,7 @@ export default function Board() {
   }
   return (
     <Box sx={{ p: 2 }}>
-      <Typography variant="h3">Katalina or Liliane?</Typography>
+      <Typography variant="h3">Result</Typography>
       <TableContainer component={Box} sx={{ p: 1 }}>
         <Table>
           <TableHead>
